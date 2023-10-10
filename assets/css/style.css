@@ -11863,5 +11863,17 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+.myBrand {
+  font-family: "Poppins" sans-serif;
+  letter-spacing: 0.5rem;
+}
+
+.myThumbnail {
+  background-color: #adb5bd;
+  border: none;
+  font-size: x-large;
+  width: 3rem;
+  height: 3rem;
+}
 
 /*# sourceMappingURL=style.css.map */
