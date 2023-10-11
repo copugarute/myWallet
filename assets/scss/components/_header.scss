@@ -1,0 +1,24 @@
+.header{
+    color: $light;
+    background-color: $dark;
+    border-radius: 0rem 0rem 2.5rem 2.5rem;
+
+    &__saldo{
+        font-size: x-large;
+        text-align: center;
+    }
+
+    &__seccion2{
+        display: flex;
+        justify-content: space-around;
+    }
+    &__gastos{
+        font-size: large;
+        text-align: center;
+    }
+
+    &__ingresos{
+        font-size: large;
+        text-align: center;
+    }
+}

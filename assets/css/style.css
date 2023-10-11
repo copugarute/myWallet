@@ -11884,4 +11884,26 @@ textarea.form-control-lg {
   align-self: center;
 }
 
+.header {
+  color: #f8f9fa;
+  background-color: #212529;
+  border-radius: 0rem 0rem 2.5rem 2.5rem;
+}
+.header__saldo {
+  font-size: x-large;
+  text-align: center;
+}
+.header__seccion2 {
+  display: flex;
+  justify-content: space-around;
+}
+.header__gastos {
+  font-size: large;
+  text-align: center;
+}
+.header__ingresos {
+  font-size: large;
+  text-align: center;
+}
+
 /*# sourceMappingURL=style.css.map */
