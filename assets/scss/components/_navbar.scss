@@ -1,6 +1,8 @@
 .myBrand{
-    font-family: 'Poppins' sans-serif;
+    font-family: 'Duru Sans' sans-serif;
     letter-spacing: 0.5rem ;
+    font-weight: 100;
+    text-align: center;
 }
 .myThumbnail{
     background-color: $gray-500;
@@ -8,4 +10,9 @@
     font-size: x-large;
     width: 3rem;
     height:  3rem;
+    display: flex;
+    justify-content: center;
+}
+.myUser{
+    align-self: center;
 }
