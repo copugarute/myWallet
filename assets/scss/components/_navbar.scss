@@ -1,8 +1,14 @@
+.myNavbar{
+    background: rgb(33,37,41);
+    background: linear-gradient(90deg, rgba(33,37,41,1) 0%, rgba(52,58,64,1) 35%, rgba(73,80,87,1) 100%);
+    border-bottom: solid 1px $dark;
+}
 .myBrand{
-    font-family: 'Duru Sans' sans-serif;
-    letter-spacing: 0.5rem ;
+    display: flex ;
+    font-family: $font-family-sans-serif-2;
+    letter-spacing: 0.3rem ;
     font-weight: 100;
-    text-align: center;
+    align-items: center;
 }
 .myThumbnail{
     background-color: $gray-500;

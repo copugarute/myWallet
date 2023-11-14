@@ -1,0 +1,15 @@
+.ingresos{
+    position: absolute;
+    top: 90%;
+    left: 7%;
+    height: 46vh;
+    width: 85%;
+    background-color: $light;
+    border-radius: 2.5rem;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    
+    &__form{
+        border: none !important;
+    }
+
+}

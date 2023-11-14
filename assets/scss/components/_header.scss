@@ -1,6 +1,8 @@
 .header{
     color: $light;
-    background-color: $dark;
+    //background-color: $dark;
+    background: rgb(33,37,41);
+    background: linear-gradient(90deg, rgba(33,37,41,1) 0%, rgba(52,58,64,1) 35%, rgba(73,80,87,1) 100%);
     border-radius: 0rem 0rem 2.5rem 2.5rem;
 
     &__saldo{

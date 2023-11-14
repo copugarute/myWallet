@@ -3,21 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>MyWallet</title>
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3360/3360459.png">
     <link rel="stylesheet" href="assets/css/style.css">
+        <!-- GOOGLE ICONS -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 </head>
 <body>
+
     <!-- NAVBAR -->
-    <nav class="navbar bg-dark myNavbar ps-3">
+    <nav class="navbar myNavbar px-3">
             <div class="img-thumbnail rounded-circle myThumbnail">
                 <div class="myUser" id="user">CV</div>
             </div>
-            <a class="myBrand navbar-brand  text-light flex-fill me-5" href="#">My Wallet</a>
+            <div class="myBrand text-center mx-auto pe-4"> <!-- Contenedor flex para ícono y texto -->
+                
+                <span class="material-symbols-outlined text-light mx-1">
+                    account_balance_wallet
+                </span>
+                <a class=" navbar-brand  text-light" href="#">
+                    My Wallet
+                </a>
+            </div>
     </nav>
+
+        <!-- HEADER -->
     <header class="header">
         <div class="header__saldo pt-4 mb-5">
             <div class="">$000000</div>
-            <div class="">Saldo</div>
+            <!-- <div class="">Saldo</div> -->
         </div>
         <div class="header__seccion2">
             <div class="header__gastos mb-5">
@@ -29,8 +43,34 @@
                 <div>$000000</div>
             </div>
         </div>
-        
     </header>
+
+        <!-- INGRESOS -->
+    <section class="ingresos px-2">
+        <h4 class="ingresos__titulo my-4 ms-3">Ingresar movimientos</h2>
+        <form class="ingresos__form form-control">
+            <!-- Tipo de ingreso -->
+            <select class="form-select" aria-label="Default select example">
+                <option value="1">Gasto</option>
+                <option value="2">Ingreso</option>
+            </select>
+            <!-- Categoria -->
+            <select class="form-select" aria-label="Default select example">
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+            </select>
+            <!-- Monto -->
+            <div class="input-group mb-3">
+                <span class="input-group-text">$</span>
+                <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+            </div>
+            <div class="d-grid gap-2">
+                <button class="btn btn-dark" type="submit">Button</button>
+              </div>
+        </form>
+
+    </section>
 
 
 

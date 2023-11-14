@@ -3,12 +3,13 @@
 //* VENDORS
 @import 'vendors/bootstrap5.3.2/bootstrap.scss';
 //* BASE
-
+@import 'base/body.scss';
 //* LAYOUT
 
 //* COMPONENTS
 @import 'components/navbar.scss';
 @import 'components/header.scss';
+@import 'components/form_seccion1.scss';
 //* PAGES
 
 //* THEMES
