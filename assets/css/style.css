@@ -11885,10 +11885,6 @@ body {
   align-items: center;
 }
 
-.material-symbols-outlined {
-  font-weight: 300;
-}
-
 .myThumbnail {
   background-color: #adb5bd;
   border: none;
@@ -11935,11 +11931,18 @@ body {
   position: absolute;
   top: 90%;
   left: 7.5%;
-  height: 46vh;
+  height: 35vh;
   width: 85%;
   background-color: #f8f9fa;
   border-radius: 2.5rem;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+.ingresos__titulo {
+  font-family: "Montserrat", sans-serif;
+  font-size: large;
+  font-weight: 400;
+  text-align: center;
+  color: #212529;
 }
 .ingresos__form {
   border: none !important;

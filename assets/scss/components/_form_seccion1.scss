@@ -2,14 +2,22 @@
     position: absolute;
     top: 90%;
     left: 7.5%;
-    height: 46vh;
+    height: 35vh;
     width: 85%;
     background-color: $light;
     border-radius: 2.5rem;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     
+    &__titulo{
+        font-family: $font-family-sans-serif;
+        font-size: large;
+        font-weight: 400;
+        text-align: center;
+        color: $dark;
+    }
     &__form{
         border: none !important;
     }
+
 
 }
