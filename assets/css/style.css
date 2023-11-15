@@ -1,5 +1,6 @@
 @charset "UTF-8";
-@import url("https://fonts.googleapis.com/css2?family=Duru+Sans&family=Poppins&family=Ubuntu+Mono&display=swap&family=Josefin+Sans:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lusitana:wght@400;700&family=Montserrat:wght@300;400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap");
 /*!
  * Bootstrap  v5.3.2 (https://getbootstrap.com/)
  * Copyright 2011-2023 The Bootstrap Authors
@@ -72,7 +73,7 @@
   --bs-dark-border-subtle: #adb5bd;
   --bs-white-rgb: 255, 255, 255;
   --bs-black-rgb: 0, 0, 0;
-  --bs-font-sans-serif: "Poppins", "Duru Sans", sans-serif;
+  --bs-font-sans-serif: "Montserrat", sans-serif;
   --bs-font-monospace: "Ubuntu Mono", monospace;
   --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
   --bs-body-font-family: var(--bs-font-sans-serif);
@@ -11864,6 +11865,7 @@ textarea.form-control-lg {
   }
 }
 body {
+  box-sizing: border-box;
   position: relative;
   margin: 0;
   padding: 0;
@@ -11879,8 +11881,12 @@ body {
   display: flex;
   font-family: "Josefin Sans", sans-serif;
   letter-spacing: 0.3rem;
-  font-weight: 100;
+  font-weight: 300;
   align-items: center;
+}
+
+.material-symbols-outlined {
+  font-weight: 300;
 }
 
 .myThumbnail {
@@ -11899,9 +11905,8 @@ body {
 
 .header {
   color: #f8f9fa;
-  background: rgb(33, 37, 41);
-  background: linear-gradient(90deg, rgb(33, 37, 41) 0%, rgb(52, 58, 64) 35%, rgb(73, 80, 87) 100%);
   border-radius: 0rem 0rem 2.5rem 2.5rem;
+  font-family: "Montserrat", sans-serif;
 }
 .header__saldo {
   font-size: x-large;
@@ -11912,10 +11917,16 @@ body {
   justify-content: space-around;
 }
 .header__gastos {
-  font-size: large;
+  font-size: small;
   text-align: center;
+  font-weight: 300;
 }
 .header__ingresos {
+  font-size: small;
+  text-align: center;
+  font-weight: 300;
+}
+.header__monto {
   font-size: large;
   text-align: center;
 }
@@ -11923,7 +11934,7 @@ body {
 .ingresos {
   position: absolute;
   top: 90%;
-  left: 7%;
+  left: 7.5%;
   height: 46vh;
   width: 85%;
   background-color: #f8f9fa;
@@ -11932,6 +11943,16 @@ body {
 }
 .ingresos__form {
   border: none !important;
+}
+
+.bg-1 {
+  --s: 50px;
+  --c: #191b22;
+  --_s: calc(2*var(--s)) calc(2*var(--s));
+  --_g: 35.36% 35.36% at;
+  --_c: #0000 66%,#20222a 68% 70%,#0000 72%;
+  background: radial-gradient(var(--_g) 100% 25%, var(--_c)) var(--s) var(--s)/var(--_s), radial-gradient(var(--_g) 0 75%, var(--_c)) var(--s) var(--s)/var(--_s), radial-gradient(var(--_g) 100% 25%, var(--_c)) 0 0/var(--_s), radial-gradient(var(--_g) 0 75%, var(--_c)) 0 0/var(--_s), repeating-conic-gradient(var(--c) 0 25%, rgba(0, 0, 0, 0) 0 50%) 0 0/var(--_s), radial-gradient(var(--_c)) 0 calc(var(--s) / 2)/var(--s) var(--s) var(--c);
+  background-attachment: fixed;
 }
 
 /*# sourceMappingURL=style.css.map */

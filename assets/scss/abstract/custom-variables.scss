@@ -1,6 +1,13 @@
 //* Import
 
-@import url('https://fonts.googleapis.com/css2?family=Duru+Sans&family=Poppins&family=Ubuntu+Mono&display=swap&family=Josefin+Sans:wght@700&display=swap');
+//Impor font sans serif
+@import url('https://fonts.googleapis.com/css2?family=Lusitana:wght@400;700&family=Montserrat:wght@300;400;600&display=swap');
+//Import font monoscape
+
+
+//Import font serif
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap');
+
 
 //* Brand Colors
 
@@ -108,8 +115,7 @@ $border-radius: 0.20rem;
 
 //* Fonts
 
-$font-family-sans-serif: 'Poppins', 'Duru Sans', sans-serif;
+$font-family-sans-serif: 'Montserrat', sans-serif;
 $font-family-monospace: 'Ubuntu Mono', monospace;
-$font-family-sans-serif-2: 'Josefin Sans', sans-serif;
-
-
+$font-family-title: 'Josefin Sans', sans-serif;
+$font-family-serif: 'Lusitana', serif;
