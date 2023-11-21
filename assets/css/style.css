@@ -11963,6 +11963,7 @@ body {
   width: 25%;
   justify-content: center;
   align-items: center;
+  color: #ef5350;
 }
 .movimientos__info {
   display: flex;
@@ -11979,6 +11980,10 @@ body {
   width: 25%;
 }
 
+.icono2 {
+  color: #66bb6a;
+}
+
 .card {
   width: 90%;
 }
@@ -11993,12 +11998,12 @@ body {
 
 span.size-48 {
   font-size: 48px;
-  font-variation-settings: "OPSZ" 48;
+  font-variation-settings: "OPSZ" 48, "wght" 300;
 }
 
 span.size-30 {
   font-size: 30px;
-  font-variation-settings: "OPSZ" 30;
+  font-variation-settings: "OPSZ" 30, "wght" 100;
 }
 
 .bg-1 {

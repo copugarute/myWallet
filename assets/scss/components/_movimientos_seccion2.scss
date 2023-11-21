@@ -14,6 +14,7 @@
         width: 25%;
         justify-content: center;
         align-items: center;
+        color: $danger;
     }
 
     &__info{
@@ -34,6 +35,9 @@
         width: 25%;
     }
 }
+.icono2{
+    color: $success;
+}
 .card{
     width: 90%;
 }
@@ -48,10 +52,10 @@
 
 span.size-48{
     font-size: 48px;
-    font-variation-settings: 'OPSZ' 48;
+    font-variation-settings: 'OPSZ' 48, 'wght' 300;
 }
 
 span.size-30 {
     font-size: 30px;
-    font-variation-settings: 'OPSZ' 30;
+    font-variation-settings: 'OPSZ' 30, 'wght' 100;
   }
