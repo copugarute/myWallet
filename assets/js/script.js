@@ -53,22 +53,44 @@ let suma_gastos = 0;
 
 let saldo = suma_ingresos;
 
+let lista_categoria_ingreso = [
+    {nombre:'Dinero extra', icono:'savings', valor: 'dinero extra'},
+    {nombre: 'Salario', icono:'work', valor: 'salario'},
+    {nombre: 'Otro', icono:'payments', valor: 'otro'}
+]
+
+let lista_categoria_gastos = [
+    {nombre: 'Personal', icono: 'person', valor: 'personal'},
+    {nombre: 'Educacion', icono: 'school', valor: 'educacion'},
+    {nombre: 'Salud', icono: 'home_health', valor: 'salud'},
+    {nombre: 'Hogar', icono: 'house', valor: 'hogar'}
+]
+
 //*Get elements HTML*********************************************************
 
     //Formulaio
 let formulario = document.getElementById('my_form');
+
     //Select tipo movimiento
 let select_movimiento = document.getElementById('tipo_movimiento');
-    //Select tipo categoria
-let select_categoria = document.getElementById('categoria');
+
+    //Select categoria
+let select_categoria = document.getElementById('categoria__select')
+
     //Input monto
 let input_monto = document.getElementById('monto');
+
     //Saldo div
 let saldo_html = document.getElementById('saldo');
+
     //gastos div
 let gastos_html = document.getElementById('gastos');
+
     //ingresos div
 let ingresos_html = document.getElementById('ingresos');
+
+    //Card movimientos
+let card_movimientos = document.getElementById('my_card')
 
 //*Funciones****************************************************************
 
@@ -77,20 +99,25 @@ let ingresos_html = document.getElementById('ingresos');
 select_movimiento.addEventListener('change', function(){
 
     if(select_movimiento.value == "ingreso"){
-        select_categoria.innerHTML = `
-        <option value="dinero extra">Dinero Extra</option>
-        <option value="salario">Salario</option>
-        <option value="Otro">Otro</option>
-        `
+        select_categoria.style.display = 'block'
+        select_categoria.innerHTML = ''
+        lista_categoria_ingreso.forEach((item)=>{
+            select_categoria.innerHTML += `
+            <option value="${item.valor}">${item.nombre}</option>
+            `
+        })
+
+        
     }
 
-    if(select_movimiento.value == "gasto"){
-        select_categoria.innerHTML = `
-        <option value="personal">Personal</option>
-        <option value="educacion">Educacion</option>
-        <option value="salud">Salud</option>
-        <option value="hogar">Hogar</option>
-        `
+    if(select_movimiento.value == 'gasto'){
+        select_categoria.style.display = 'block'
+        select_categoria.innerHTML = ''
+        lista_categoria_gastos.forEach((item)=>{
+            select_categoria.innerHTML += `
+            <option value="${item.valor}">${item.nombre}</option>
+            `
+        })
     }
 })
 
@@ -128,9 +155,7 @@ function get_form(){
     e.preventDefault()
     get_form()
     formulario.reset()
-    select_categoria.innerHTML = `
-            <option value=""> - </option>
-        `
+    select_categoria.style.display = 'none'
 
 })
 
@@ -182,10 +207,13 @@ function inyect_montos(){
     `
 }
 
+function inyect_movimientos_card(){
+    
+}
+
 //funcion validar si hay dinero antes de ingresar un gasto
 
 //funcion insertar movimientos
-
 
 // function total_movimiento(array){
 //    if(array == ingresos){
@@ -224,6 +252,25 @@ function inyect_montos(){
 //     console.log(suma_ingresos)
 // }
 
-//let opciones_categoria_ingsore = ["Dinero extra", "Salario", "Otro"]
+//let opciones_categoria_ingreso = ["Dinero extra", "Salario", "Otro"]
 
 //let opciones_categoria_gasto = ["Personal", "Education", "Salud", "Hogar"]
+
+// select_movimiento.addEventListener('change', function(){
+//     if(select_movimiento.value == "ingreso"){
+//         select_categoria.innerHTML += `
+//         <option value="dinero extra"> </option>
+//         <option value="salario">Salario</option>
+//         <option value="Otro">Otro</option>
+//         `
+//     }
+
+//     if(select_movimiento.value == "gasto"){
+//         select_categoria.innerHTML += `
+//         <option value="personal">Personal</option>
+//         <option value="educacion">Educacion</option>
+//         <option value="salud">Salud</option>
+//         <option value="hogar">Hogar</option>
+//         `
+//     }
+// })

@@ -50,14 +50,15 @@
         <form class="ingresos__form form-control" id="my_form">
             <!-- Tipo de ingreso -->
             <select class="form-select" id="tipo_movimiento"  aria-label="Default select example">
-                <option value="vacio">Elige una opción</option>
                 <option value="gasto">Gasto</option>
                 <option value="ingreso">Ingreso</option>
             </select>
             <!-- Categoria -->
-            <select class="form-select" id="categoria" aria-label="Default select example">
-                
-            </select>
+            <div class="categoria" id="categoria">
+                <select class="form-select categoria__ingreso" id="categoria__select"  aria-label="Default select example"> 
+                </select>
+            </div>
+            
             <!-- Monto -->
             <div class="input-group mb-3">
                 <span class="input-group-text">$</span>
@@ -73,51 +74,30 @@
      <!-- MOVIMIENTOS -->
      <section class="movimientos">
         <h4 class="text-center mb-5">MOVIMIENTOS</h4>
-        <div class="card mx-auto mb-2 card1">
+        <div class="card mx-auto mb-2" id="my_card">
             <div class="movimientos__container card-body">
                 <div class="movimientos__icono" >
-                    <span class="material-symbols-outlined size-48">
+                    <span class="material-symbols-outlined">
                         savings
                     </span>
+                    <p>categoria</p>
                 </div>
                 <div class="movimientos__info text-center">
                     <h6>$00000</h6>
                     <p>16/11/2023</p>
                 </div>
                 <div class="movimientos__actions">
-                    <button type="button" class="btn">
-                        <span class="material-symbols-outlined size-30">
+                    <button type="button" class="btn my_btn">
+                        <span class="material-symbols-outlined size-30 my_icon">
                             edit
                         </span>
                     </button>
                     
-                    <button type="button" class="btn">
-                        <span class="material-symbols-outlined size-30">
+                    <button type="button" class="btn my_btn">
+                        <span class="material-symbols-outlined size-30 my_icon">
                             delete
                         </span>
                     </button>
-                </div>
-            </div>
-        </div>
-
-        <div class="card mx-auto card2">
-            <div class="movimientos__container card-body">
-                <div class="movimientos__icono icono2" >
-                    <span class="material-symbols-outlined size-48">
-                        savings
-                    </span>
-                </div>
-                <div class="movimientos__info text-center">
-                    <h6>$00000</h6>
-                    <p>16/11/2023</p>
-                </div>
-                <div class="movimientos__actions">
-                    <span class="material-symbols-outlined size-30">
-                        edit
-                    </span>
-                    <span class="material-symbols-outlined size-30">
-                        delete
-                    </span>
                 </div>
             </div>
         </div>

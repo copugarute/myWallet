@@ -11948,6 +11948,10 @@ body {
   border: none !important;
 }
 
+.categoria__ingreso {
+  display: none;
+}
+
 .movimientos {
   position: absolute;
   top: 70vh;
@@ -11961,9 +11965,13 @@ body {
 .movimientos__icono {
   display: flex;
   width: 25%;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   color: #ef5350;
+}
+.movimientos__icono p {
+  margin: 0;
 }
 .movimientos__info {
   display: flex;

@@ -12,9 +12,14 @@
     &__icono{
         display: flex;
         width: 25%;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         color: $danger;
+    }
+
+    &__icono p{
+        margin: 0;
     }
 
     &__info{
