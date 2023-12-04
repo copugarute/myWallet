@@ -47,22 +47,26 @@
         <!-- INGRESOS -->
     <section class="ingresos px-2">
         <h4 class="ingresos__titulo my-4 pe-2">AGREGAR MOVIMIENTO</h4>
-        <form class="ingresos__form form-control" id="my_form">
+        <form class="ingresos__form form-control mb-3" id="my_form">
             <!-- Tipo de ingreso -->
-            <select class="form-select" id="tipo_movimiento"  aria-label="Default select example">
-                <option value="gasto">Gasto</option>
-                <option value="ingreso">Ingreso</option>
-            </select>
+            <div>
+                <select class="form-select" id="tipo_movimiento"  aria-label="Default select example" required>
+                    <option value="vacio">Elige una opción</option>
+                    <option value="gasto">Gasto</option>
+                    <option value="ingreso">Ingreso</option>
+                </select>
+            </div>
+            
             <!-- Categoria -->
             <div class="categoria" id="categoria">
-                <select class="form-select categoria__ingreso" id="categoria__select"  aria-label="Default select example"> 
+                <select class="form-select categoria__ingreso" id="categoria__select"  aria-label="Default select example" required>
                 </select>
             </div>
             
             <!-- Monto -->
             <div class="input-group mb-3">
                 <span class="input-group-text">$</span>
-                <input type="text" class="form-control" id="monto" aria-label="Amount (to the nearest dollar)">
+                <input type="text" class="form-control" id="monto" aria-label="Amount (to the nearest dollar)" required>
             </div>
             <div class="d-grid gap-2">
                 <button class="btn btn-dark" type="submit">AGREGAR</button>
@@ -74,34 +78,9 @@
      <!-- MOVIMIENTOS -->
      <section class="movimientos">
         <h4 class="text-center mb-5">MOVIMIENTOS</h4>
-        <div class="card mx-auto mb-2" id="my_card">
-            <div class="movimientos__container card-body">
-                <div class="movimientos__icono" >
-                    <span class="material-symbols-outlined">
-                        savings
-                    </span>
-                    <p>categoria</p>
-                </div>
-                <div class="movimientos__info text-center">
-                    <h6>$00000</h6>
-                    <p>16/11/2023</p>
-                </div>
-                <div class="movimientos__actions">
-                    <button type="button" class="btn my_btn">
-                        <span class="material-symbols-outlined size-30 my_icon">
-                            edit
-                        </span>
-                    </button>
-                    
-                    <button type="button" class="btn my_btn">
-                        <span class="material-symbols-outlined size-30 my_icon">
-                            delete
-                        </span>
-                    </button>
-                </div>
-            </div>
+        <div id="container_card">
+            <div class="card mx-auto mb-2" id="my_card"></div>
         </div>
-        
     </section>
 
 

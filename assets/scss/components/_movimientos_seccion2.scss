@@ -15,7 +15,6 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        color: $danger;
     }
 
     &__icono p{
@@ -40,21 +39,23 @@
         width: 25%;
     }
 }
-.icono2{
-    color: $success;
-}
 .card{
     width: 90%;
 }
 
-.card1{
+.gasto{
     border: solid 3px $danger;
 }
-
-.card2{
-    border: solid 3px $success;
+.icono_gasto{
+    color: $danger;
 }
 
+.ingreso{
+    border: solid 3px $success;
+}
+.icono_ingreso{
+    color: $success;
+}
 span.size-48{
     font-size: 48px;
     font-variation-settings: 'OPSZ' 48, 'wght' 300;

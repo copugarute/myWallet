@@ -41,11 +41,13 @@ class Movimiento{
 }
 
 //*Variables****************************************************************
+let cat = ''
+
+let movimientos = [];
 
 let ingresos = [];
 
 let gastos = [];
-
 
 let suma_ingresos = 0;
 
@@ -54,12 +56,14 @@ let suma_gastos = 0;
 let saldo = suma_ingresos;
 
 let lista_categoria_ingreso = [
+    {nombre: 'Elige una opcion', icono: '', valor: 'vacio'},
     {nombre:'Dinero extra', icono:'savings', valor: 'dinero extra'},
     {nombre: 'Salario', icono:'work', valor: 'salario'},
     {nombre: 'Otro', icono:'payments', valor: 'otro'}
 ]
 
 let lista_categoria_gastos = [
+    {nombre: 'Elige una opcion', icono: '', valor: 'vacio'},
     {nombre: 'Personal', icono: 'person', valor: 'personal'},
     {nombre: 'Educacion', icono: 'school', valor: 'educacion'},
     {nombre: 'Salud', icono: 'home_health', valor: 'salud'},
@@ -92,6 +96,8 @@ let ingresos_html = document.getElementById('ingresos');
     //Card movimientos
 let card_movimientos = document.getElementById('my_card')
 
+let movimientos_container = document.getElementById('container_card')
+
 //*Funciones****************************************************************
 
     //Funcion para definir categoría según el tipo de movimiento
@@ -107,7 +113,6 @@ select_movimiento.addEventListener('change', function(){
             `
         })
 
-        
     }
 
     if(select_movimiento.value == 'gasto'){
@@ -119,14 +124,95 @@ select_movimiento.addEventListener('change', function(){
             `
         })
     }
+
+    if(select_movimiento.value == "vacio"){
+        select_categoria.style.display = 'none'
+    }
 })
+
+    //Función construir objeto categoria
+
+    select_categoria.addEventListener('change', function(){
+
+        switch (select_categoria.value) {
+            case "dinero extra":
+                cat = {
+                    nombre: 'Dinero extra',
+                    valor: select_categoria.value,
+                    icono: 'savings'
+                }
+                
+                break;
+
+                case "salario":
+                    cat = {
+                        nombre: 'Salario',
+                        valor: select_categoria.value,
+                        icono: 'work'
+                    }
+                    
+                    break;
+
+                    case "otro":
+                        cat = {
+                            nombre: 'Otro',
+                            valor: select_categoria.value,
+                            icono: 'payments'
+                        }
+                        
+                        break;
+                    
+                    case "personal":
+                        cat = {
+                            nombre: 'Personal',
+                            valor: select_categoria.value,
+                            icono: 'person'
+                        }
+                    
+                    break;
+
+                    case "educacion":
+                        cat = {
+                            nombre: 'Educacion',
+                            valor: select_categoria.value,
+                            icono: 'school'
+                        }
+                    
+                    break;
+
+                    case "salud":
+                        cat = {
+                            nombre: 'Salud',
+                            valor: select_categoria.value,
+                            icono: 'home_health'
+                        }
+                    
+                    break;
+
+                    case "hogar":
+                        cat = {
+                            nombre: 'Hogar',
+                            valor: select_categoria.value,
+                            icono: 'house'
+                        }
+                    
+                    break;
+
+                    
+        
+            default:
+                break;
+        }
+
+        console.log(cat)
+
+    })
 
     //Función capturar datos de formulario
 
 function get_form(){
-    console.log(saldo)
     let tipo = select_movimiento.value
-    let categoria = select_categoria.value
+    let categoria = cat
     let monto = parseInt(input_monto.value)
     let fecha = new Date()
     let fecha_completa = format_date(fecha)
@@ -140,10 +226,15 @@ function get_form(){
         total_gastos(gastos)
     }
 
+    movimientos.push(new Movimiento(tipo, categoria, monto, fecha_completa))
+    inyect_movimientos_card(movimientos)
+    
     saldo = suma_ingresos - suma_gastos
 
     inyect_montos()
+    
 
+    console.log(movimientos)
     console.log(ingresos)
     console.log(gastos)
     console.log(saldo)
@@ -158,6 +249,7 @@ function get_form(){
     select_categoria.style.display = 'none'
 
 })
+
 
     //Formateo de fecha a DD/MM/YYYY
 
@@ -207,70 +299,44 @@ function inyect_montos(){
     `
 }
 
-function inyect_movimientos_card(){
-    
+    //Funcion insertar movimientos
+
+function inyect_movimientos_card(element){
+    movimientos_container.innerHTML = ''
+
+    const reversed_movimientos = element.slice().reverse()
+
+    reversed_movimientos.forEach((item,index)=>{
+        console.log(index)
+        movimientos_container.innerHTML += `
+        <div class="card mx-auto mb-2 ${item.tipo === 'ingreso' ? 'ingreso' : 'gasto'}" id="my_card_${index}">
+            <div class="movimientos__container card-body">
+                <div class="movimientos__icono ${item.tipo === 'ingreso' ? 'icono_ingreso' : 'icono_gasto'} " >
+                    <span class="material-symbols-outlined">
+                        ${item.categoria.icono}
+                    </span>
+                    <p>${item.categoria.nombre}</p>
+                </div>
+                <div class="movimientos__info text-center">
+                    <h6>$ ${Number(item.monto).toLocaleString('es-cl')}</h6>
+                    <p>16/11/2023</p>
+                </div>
+                <div class="movimientos__actions">
+                    <button type="button" class="btn my_btn">
+                        <span class="material-symbols-outlined size-30 my_icon">
+                            edit
+                        </span>
+                    </button>
+                    
+                    <button type="button" class="btn my_btn" onclick="eliminar_gasto(${index})">
+                        <span class="material-symbols-outlined size-30 my_icon">
+                            delete
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        `
+        
+    })
 }
-
-//funcion validar si hay dinero antes de ingresar un gasto
-
-//funcion insertar movimientos
-
-// function total_movimiento(array){
-//    if(array == ingresos){
-//     suma_ingresos = ingresos.reduce((total,item)=>{
-//         return total + item.monto
-//     }, 0)
-
-//     if(array == gastos){
-//         suma_gastos = gastos.reduce((total,item)=>{
-//             return total + item.monto
-//         }, 0)
-//     }
-//    }
-   
-//     console.log(suma_ingresos)
-//     console.log(suma_gastos)
-
-// }
-
-
-// function get_form(){
-//     let tipo = select_movimiento.value
-//     let categoria = select_categoria.value
-//     let monto = input_monto.value
-//     let fecha = new Date()
-//     let fecha_completa = format_date(fecha)
-
-//     //Aquí hacer una condicinal para ver si es gasto o ingreso
-
-//     movimientos.push(new Movimiento(tipo, categoria, monto, fecha_completa))
-
-//     total_movimiento(movimientos)
-
-//     console.log(movimientos)
-//     console.log(suma_gastos)
-//     console.log(suma_ingresos)
-// }
-
-//let opciones_categoria_ingreso = ["Dinero extra", "Salario", "Otro"]
-
-//let opciones_categoria_gasto = ["Personal", "Education", "Salud", "Hogar"]
-
-// select_movimiento.addEventListener('change', function(){
-//     if(select_movimiento.value == "ingreso"){
-//         select_categoria.innerHTML += `
-//         <option value="dinero extra"> </option>
-//         <option value="salario">Salario</option>
-//         <option value="Otro">Otro</option>
-//         `
-//     }
-
-//     if(select_movimiento.value == "gasto"){
-//         select_categoria.innerHTML += `
-//         <option value="personal">Personal</option>
-//         <option value="educacion">Educacion</option>
-//         <option value="salud">Salud</option>
-//         <option value="hogar">Hogar</option>
-//         `
-//     }
-// })

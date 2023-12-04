@@ -11931,7 +11931,7 @@ body {
   position: absolute;
   top: 90%;
   left: 7.5%;
-  height: 35vh;
+  height: auto;
   width: 85%;
   background-color: #f8f9fa;
   border-radius: 2.5rem;
@@ -11968,7 +11968,6 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: #ef5350;
 }
 .movimientos__icono p {
   margin: 0;
@@ -11988,20 +11987,24 @@ body {
   width: 25%;
 }
 
-.icono2 {
-  color: #66bb6a;
-}
-
 .card {
   width: 90%;
 }
 
-.card1 {
+.gasto {
   border: solid 3px #ef5350;
 }
 
-.card2 {
+.icono_gasto {
+  color: #ef5350;
+}
+
+.ingreso {
   border: solid 3px #66bb6a;
+}
+
+.icono_ingreso {
+  color: #66bb6a;
 }
 
 span.size-48 {
