@@ -44,14 +44,14 @@
 }
 
 .gasto{
-    border: solid 3px $danger;
+    border: solid 2px $danger;
 }
 .icono_gasto{
     color: $danger;
 }
 
 .ingreso{
-    border: solid 3px $success;
+    border: solid 2px $success;
 }
 .icono_ingreso{
     color: $success;
@@ -63,5 +63,5 @@ span.size-48{
 
 span.size-30 {
     font-size: 30px;
-    font-variation-settings: 'OPSZ' 30, 'wght' 100;
+    font-variation-settings: 'OPSZ' 30, 'wght' 300;
   }

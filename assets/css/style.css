@@ -11992,7 +11992,7 @@ body {
 }
 
 .gasto {
-  border: solid 3px #ef5350;
+  border: solid 2px #ef5350;
 }
 
 .icono_gasto {
@@ -12000,7 +12000,7 @@ body {
 }
 
 .ingreso {
-  border: solid 3px #66bb6a;
+  border: solid 2px #66bb6a;
 }
 
 .icono_ingreso {
@@ -12014,7 +12014,7 @@ span.size-48 {
 
 span.size-30 {
   font-size: 30px;
-  font-variation-settings: "OPSZ" 30, "wght" 100;
+  font-variation-settings: "OPSZ" 30, "wght" 300;
 }
 
 .bg-1 {

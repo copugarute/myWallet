@@ -1,6 +1,7 @@
 //* Constructor movimiento********************************************************
 class Movimiento{
-    constructor(tipo_movimiento, categoria, monto, fecha){
+    constructor(id,tipo_movimiento, categoria, monto, fecha){
+        this._id = id;
         this._tipo_movimiento = tipo_movimiento;
         this._categoria = categoria;
         this._monto = monto;
@@ -211,6 +212,7 @@ select_movimiento.addEventListener('change', function(){
     //Función capturar datos de formulario
 
 function get_form(){
+    let id = Math.floor(Math.random() * 100)
     let tipo = select_movimiento.value
     let categoria = cat
     let monto = parseInt(input_monto.value)
@@ -218,20 +220,21 @@ function get_form(){
     let fecha_completa = format_date(fecha)
 
     if(select_movimiento.value == "ingreso"){
-        ingresos.push(new Movimiento(tipo, categoria, monto, fecha_completa))
-        total_ingresos(ingresos)
+        ingresos.push(new Movimiento(id, tipo, categoria, monto, fecha_completa))
+        //total_ingresos(ingresos)
     }
     if(select_movimiento.value == "gasto"){
-        gastos.push(new Movimiento(tipo, categoria, monto, fecha_completa))
-        total_gastos(gastos)
+        gastos.push(new Movimiento(id, tipo, categoria, monto, fecha_completa))
+        //total_gastos(gastos)
     }
 
-    movimientos.push(new Movimiento(tipo, categoria, monto, fecha_completa))
+    movimientos.push(new Movimiento(id, tipo, categoria, monto, fecha_completa))
     inyect_movimientos_card(movimientos)
+    calcular_montos()
     
-    saldo = suma_ingresos - suma_gastos
+    //saldo = suma_ingresos - suma_gastos
 
-    inyect_montos()
+    //inyect_montos()
     
 
     console.log(movimientos)
@@ -263,22 +266,26 @@ function format_date(date){
     return fecha_formateada
 }
 
-    //Función sumar montos
+    //Función calcular montos
 
-function total_ingresos(array){
-    suma_ingresos = array.reduce((total,item)=>{
+function calcular_montos(){
+    suma_ingresos = ingresos.reduce((total,item)=>{
         return total + item.monto
     }, 0)
 
     console.log(suma_ingresos)
-}
 
-function total_gastos(array){
-    suma_gastos = array.reduce((total,item)=>{
+    suma_gastos = gastos.reduce((total,item)=>{
         return total + item.monto
     }, 0)
 
     console.log(suma_gastos)
+
+    saldo = suma_ingresos - suma_gastos
+
+    console.log(saldo)
+
+    inyect_montos()
 }
 
     //funcion mostrar montos
@@ -307,7 +314,7 @@ function inyect_movimientos_card(element){
     const reversed_movimientos = element.slice().reverse()
 
     reversed_movimientos.forEach((item,index)=>{
-        console.log(index)
+        console.log(item._id)
         movimientos_container.innerHTML += `
         <div class="card mx-auto mb-2 ${item.tipo === 'ingreso' ? 'ingreso' : 'gasto'}" id="my_card_${index}">
             <div class="movimientos__container card-body">
@@ -322,13 +329,8 @@ function inyect_movimientos_card(element){
                     <p>16/11/2023</p>
                 </div>
                 <div class="movimientos__actions">
-                    <button type="button" class="btn my_btn">
-                        <span class="material-symbols-outlined size-30 my_icon">
-                            edit
-                        </span>
-                    </button>
                     
-                    <button type="button" class="btn my_btn" onclick="eliminar_gasto(${index})">
+                    <button type="button" class="btn my_btn" onclick="eliminar_gasto(${item._id})">
                         <span class="material-symbols-outlined size-30 my_icon">
                             delete
                         </span>
@@ -339,4 +341,25 @@ function inyect_movimientos_card(element){
         `
         
     })
+}
+
+function eliminar_gasto(id){
+
+    const index = movimientos.findIndex(item => item._id === id);
+    if (index !== -1) {
+        const movimientoEliminado = movimientos.splice(index, 1)[0];
+
+        if (movimientoEliminado.tipo === "ingreso") {
+            const ingresoIndex = ingresos.findIndex(item => item._id === id);
+            ingresos.splice(ingresoIndex, 1);
+        } else if (movimientoEliminado.tipo === "gasto") {
+            const gastoIndex = gastos.findIndex(item => item._id === id);
+            gastos.splice(gastoIndex, 1);
+        }
+
+        inyect_movimientos_card(movimientos);
+        calcular_montos();
+        console.log(movimientos);
+    }
+
 }
